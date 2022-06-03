@@ -8,19 +8,18 @@ using System.Collections.Generic;
 
 namespace FinControle.DB {
     class DBClassePrincipal {
-        public string CaminhoBanco { get; private set; } = @"C:\BancoControle\";
-        public string NomeBanco { get; private set; } = "Controle.fdb";
-        public DBClassePrincipal() { }
+        ConectaBanco conectaBanco = new ConectaBanco();
+        public DBClassePrincipal(){}
 
-        public bool ExistePasta() {
-            if (Directory.Exists(CaminhoBanco)) {
+        private bool ExistePasta() {
+            if (Directory.Exists(conectaBanco.CaminhoBanco)) {
                 return true;
             }
             return false;
         }
 
-        public bool ExisteBanco() {
-            if (File.Exists(CaminhoBanco + NomeBanco)) {
+        private bool ExisteBanco() {
+            if (File.Exists(conectaBanco.CaminhoBancoCompleto)) {
                 return true;
             }
             return false;
@@ -83,7 +82,7 @@ namespace FinControle.DB {
             if (!ExistePasta()) {
                 MessageBox.Show("Pasta não existe, criando...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 try {
-                    Directory.CreateDirectory(CaminhoBanco);
+                    Directory.CreateDirectory(conectaBanco.CaminhoBanco);
                 }
                 catch (Exception a) {
                     MessageBox.Show($"Erro: {a.Message}", "Erro", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
@@ -94,25 +93,24 @@ namespace FinControle.DB {
                 MessageBox.Show("Banco não encontrado, criando banco novo...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                 FbConnectionStringBuilder builder = new FbConnectionStringBuilder();
-                FbCommand cmd;
 
                 try {
-                    builder.ClientLibrary = $@"{CaminhoBanco}firebird_server\fbclient.dll";
-                    builder.Database = CaminhoBanco + NomeBanco;
-                    builder.UserID = "SYSDBA";
-                    builder.Password = "masterkey";
+                    builder.ClientLibrary = conectaBanco.ClientLibrary;
+                    builder.Database = conectaBanco.CaminhoBancoCompleto;
+                    builder.UserID = conectaBanco.UsuarioBanco;
+                    builder.Password = conectaBanco.SenhaBanco;
                     builder.Dialect = 3;
                     builder.ServerType = FbServerType.Embedded;
 
                     FbConnection.CreateDatabase(builder.ConnectionString);
 
                     try {
-                        foreach (var item in TabelasIniciais()) {
-                            cmd = new FbCommand(item, new FbConnection(builder.ConnectionString));
-                            cmd.CommandType = CommandType.Text;
-                            cmd.Connection.Open();
-                            cmd.ExecuteNonQuery();
-                            cmd.Connection.Close();
+                        foreach (var comando in TabelasIniciais()) {
+                            conectaBanco.QuerySQL = new FbCommand(comando, new FbConnection(builder.ConnectionString));
+                            conectaBanco.QuerySQL.CommandType = CommandType.Text;
+                            conectaBanco.QuerySQL.Connection.Open();
+                            conectaBanco.QuerySQL.ExecuteNonQuery();
+                            conectaBanco.QuerySQL.Connection.Close();
                         }
                     }
                     catch (Exception a) {
@@ -126,7 +124,7 @@ namespace FinControle.DB {
                 }
 
                 MessageBox.Show($"Banco criado com sucesso!\nData e Horário de criação: " +
-                    $"{File.GetCreationTime(CaminhoBanco + NomeBanco)}", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    $"{File.GetCreationTime(conectaBanco.CaminhoBancoCompleto)}", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

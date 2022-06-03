@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Data;
-
+using FirebirdSql.Data.FirebirdClient;
 
 namespace FinControle.Login {
     class Cadastrar {
@@ -19,6 +19,8 @@ namespace FinControle.Login {
             DicaSenha = dicaSenha;
         }
 
+        public void CadastrarUsuarioNovo(string nome, string senha, string dicaSenha, int idade) {
 
+        }
     }
 }
