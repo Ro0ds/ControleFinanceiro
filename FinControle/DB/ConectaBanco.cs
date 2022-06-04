@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.IO;
 using FirebirdSql.Data.FirebirdClient;
 
 namespace FinControle.DB {
@@ -8,7 +8,8 @@ namespace FinControle.DB {
         public string CaminhoBancoCompleto { get; private set; } = @"C:\BancoControle\Controle.fdb";
         public string UsuarioBanco { get; private set; } = "SYSDBA";
         public string SenhaBanco { get; private set; } = "masterkey";
-        public string ClientLibrary { get; private set; } = @"C:\BancoControle\firebird_server\fbclient.dll";
+        //public string ClientLibrary { get; private set; } = @"C:\BancoControle\firebird_server\fbclient.dll";
+        public string ClientLibrary { get; private set; } = $@"{Directory.GetCurrentDirectory()}\firebird_server\fbclient.dll";
         public FbCommand QuerySQL { get; set; }
         public FbConnectionStringBuilder Builder { get; set; } = new FbConnectionStringBuilder();
         public FbConnection connection { get; set; }

@@ -94,16 +94,25 @@
     <Compile Include="DB\Usuario.cs" />
     <Compile Include="Login\Cadastrar.cs" />
     <Compile Include="Login\Logar.cs" />
-    <Compile Include="Main.cs">
+    <Compile Include="Login\TLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
+    <Compile Include="Login\TLogin.Designer.cs">
+      <DependentUpon>TLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TMain.Designer.cs">
+      <DependentUpon>TMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
+    <EmbeddedResource Include="Login\TLogin.resx">
+      <DependentUpon>TLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TMain.resx">
+      <DependentUpon>TMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
