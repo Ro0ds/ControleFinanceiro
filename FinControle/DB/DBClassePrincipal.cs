@@ -32,6 +32,9 @@ namespace FinControle.DB {
             StringBuilder Entradas = new StringBuilder();
             StringBuilder EntradasFK1 = new StringBuilder();
             StringBuilder EntradasFK2 = new StringBuilder();
+            StringBuilder GeneratorUsuario = new StringBuilder();
+            StringBuilder TriggerUsuario = new StringBuilder();
+            StringBuilder ProcedureUsuario = new StringBuilder();
             List<string> CriarTabelas = new List<string>();
 
             /*************************************************************************************/
@@ -66,6 +69,24 @@ namespace FinControle.DB {
 
             EntradasFK2.Append("ALTER TABLE Entradas ADD CONSTRAINT FK_Entradas_Capital foreign key " +
                 "(salario_liquido) references Capital (salario_liquido) ON UPDATE CASCADE ON DELETE CASCADE;\n");
+
+            GeneratorUsuario.Append("CREATE GENERATOR GEN_USUARIOS_ID;\n");
+
+            TriggerUsuario.AppendLine("create trigger usuarios_bi for usuarios");
+            TriggerUsuario.AppendLine("active before insert position 0");
+            TriggerUsuario.AppendLine("as");
+            TriggerUsuario.AppendLine("begin");
+            TriggerUsuario.AppendLine("if (new.id_usuario is null) then");
+            TriggerUsuario.AppendLine("new.id_usuario = gen_id(gen_usuarios_id,1);");
+            TriggerUsuario.AppendLine("end\n");
+
+            ProcedureUsuario.AppendLine("create procedure sp_gen_usuarios_id");
+            ProcedureUsuario.AppendLine("returns (id integer)");
+            ProcedureUsuario.AppendLine("as");
+            ProcedureUsuario.AppendLine("begin");
+            ProcedureUsuario.AppendLine("id = gen_id(gen_usuarios_id, 1);");
+            ProcedureUsuario.AppendLine("suspend;");
+            ProcedureUsuario.AppendLine("end\n");
             /*************************************************************************************/
 
             CriarTabelas.Add($"{Usuarios}");
@@ -74,6 +95,9 @@ namespace FinControle.DB {
             CriarTabelas.Add($"{CapitalFK1}");
             CriarTabelas.Add($"{EntradasFK1}");
             CriarTabelas.Add($"{EntradasFK2}");
+            CriarTabelas.Add($"{GeneratorUsuario}");
+            CriarTabelas.Add($"{TriggerUsuario}");
+            CriarTabelas.Add($"{ProcedureUsuario}");
 
             return CriarTabelas;
         }

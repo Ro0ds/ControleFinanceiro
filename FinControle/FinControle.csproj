@@ -91,14 +91,19 @@
   <ItemGroup>
     <Compile Include="DB\DBClassePrincipal.cs" />
     <Compile Include="DB\ConectaBanco.cs" />
-    <Compile Include="DB\Usuario.cs" />
     <Compile Include="Login\Cadastrar.cs" />
     <Compile Include="Login\Logar.cs" />
-    <Compile Include="Login\TLogin.cs">
+    <Compile Include="Login\LCriar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login\TLogin.Designer.cs">
-      <DependentUpon>TLogin.cs</DependentUpon>
+    <Compile Include="Login\LCriar.Designer.cs">
+      <DependentUpon>LCriar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login\LLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\LLogin.Designer.cs">
+      <DependentUpon>LLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="TMain.cs">
       <SubType>Form</SubType>
@@ -108,8 +113,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Login\TLogin.resx">
-      <DependentUpon>TLogin.cs</DependentUpon>
+    <EmbeddedResource Include="Login\LCriar.resx">
+      <DependentUpon>LCriar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login\LLogin.resx">
+      <DependentUpon>LLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TMain.resx">
       <DependentUpon>TMain.cs</DependentUpon>

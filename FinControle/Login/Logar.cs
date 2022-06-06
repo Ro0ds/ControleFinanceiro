@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Data;
-using System.IO;
 using FirebirdSql.Data.FirebirdClient;
-using System.Text;
 using FinControle.DB;
 using System.Windows.Forms;
 
@@ -26,7 +24,6 @@ namespace FinControle.Login {
 
         public void ExisteConta(int id, string senha) {
             string nome = string.Empty;
-
             try {
                 classePrincipal.VerificaBanco();
                 conectaBanco.AbreConexaoBanco();
@@ -35,11 +32,11 @@ namespace FinControle.Login {
 
                 conectaBanco.QuerySQL.CommandType = CommandType.Text;
 
-                int existeUsuario = conectaBanco.QuerySQL.ExecuteNonQuery();
+                FbDataReader dataReader = conectaBanco.QuerySQL.ExecuteReader();
 
-                switch (existeUsuario) {
-                    case (int)Usuario.existe:
-                        conectaBanco.QuerySQL = new FbCommand($"SELECT nome from Usuarios where id_usuario = {id}", conectaBanco.connection);
+                switch (dataReader.HasRows) {
+                    case true:
+                        conectaBanco.QuerySQL = new FbCommand($"SELECT Nome from Usuarios where id_usuario = {id} and senha = '{senha}'", conectaBanco.connection);
 
                         conectaBanco.QuerySQL.CommandType = CommandType.Text;
 
@@ -49,17 +46,17 @@ namespace FinControle.Login {
                         }
 
                         if (int.Parse(DateTime.Now.ToString("HH")) >= 5 && int.Parse(DateTime.Now.ToString("HH")) < 12) {
-                            MessageBox.Show($"Bom dia, {nome}", "Bem vindo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            MessageBox.Show($"Bom dia, {nome}!", $"Bem vindo - {DateTime.Now.ToString("HH:mm")}", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         }
                         else if (int.Parse(DateTime.Now.ToString("HH")) >= 12 && int.Parse(DateTime.Now.ToString("HH")) < 18) {
-                            MessageBox.Show($"Boa tarde, {nome}", "Bem vindo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            MessageBox.Show($"Boa tarde, {nome}!", $"Bem vindo - {DateTime.Now.ToString("HH:mm")}", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         }
                         else if (int.Parse(DateTime.Now.ToString("HH")) >= 18 && double.Parse(DateTime.Now.ToString("HH:mm")) < 23.59 || int.Parse(DateTime.Now.ToString("HH")) < 5) {
-                            MessageBox.Show($"Boa noite, {nome}", "Bem vindo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            MessageBox.Show($"Boa noite, {nome}!", $"Bem vindo - {DateTime.Now.ToString("HH:mm")}", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         }
                         break;
-                    case (int)Usuario.naoExiste:
-                        MessageBox.Show($"Usuário não encontrado na base de dados, crie um registro.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    case false:
+                        MessageBox.Show($"Usuário não encontrado na base de dados, crie um registro novo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         break;
                 }
             }

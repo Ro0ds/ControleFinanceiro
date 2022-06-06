@@ -1,6 +1,6 @@
 ﻿
 namespace FinControle.Login {
-    partial class TLogin {
+    partial class LLogin {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -26,15 +26,17 @@ namespace FinControle.Login {
         private void InitializeComponent() {
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnEntrar = new System.Windows.Forms.Button();
             this.btnCriar = new System.Windows.Forms.Button();
+            this.lblFechar = new System.Windows.Forms.Label();
+            this.numId = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numId)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -43,12 +45,12 @@ namespace FinControle.Login {
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(66)))), ((int)(((byte)(89)))));
-            this.label2.Location = new System.Drawing.Point(34, 94);
+            this.label2.Location = new System.Drawing.Point(49, 94);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 18);
+            this.label2.Size = new System.Drawing.Size(73, 18);
             this.label2.TabIndex = 4;
             this.label2.Text = "ID:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label3
             // 
@@ -56,24 +58,12 @@ namespace FinControle.Login {
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(66)))), ((int)(((byte)(89)))));
-            this.label3.Location = new System.Drawing.Point(34, 126);
+            this.label3.Location = new System.Drawing.Point(49, 126);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 18);
+            this.label3.Size = new System.Drawing.Size(73, 18);
             this.label3.TabIndex = 5;
             this.label3.Text = "Senha:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // txtId
-            // 
-            this.txtId.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(229)))), ((int)(((byte)(199)))));
-            this.txtId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtId.Font = new System.Drawing.Font("Consolas", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.txtId.Location = new System.Drawing.Point(122, 93);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(95, 23);
-            this.txtId.TabIndex = 1;
-            this.txtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtSenha
             // 
@@ -124,6 +114,7 @@ namespace FinControle.Login {
             // 
             this.btnEntrar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnEntrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(229)))), ((int)(((byte)(199)))));
+            this.btnEntrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEntrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(66)))), ((int)(((byte)(89)))));
             this.btnEntrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(194)))), ((int)(((byte)(184)))));
             this.btnEntrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(194)))), ((int)(((byte)(174)))));
@@ -143,6 +134,7 @@ namespace FinControle.Login {
             // 
             this.btnCriar.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnCriar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(229)))), ((int)(((byte)(199)))));
+            this.btnCriar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCriar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(66)))), ((int)(((byte)(89)))));
             this.btnCriar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(194)))), ((int)(((byte)(184)))));
             this.btnCriar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(194)))), ((int)(((byte)(174)))));
@@ -158,27 +150,55 @@ namespace FinControle.Login {
             this.btnCriar.UseVisualStyleBackColor = false;
             this.btnCriar.Click += new System.EventHandler(this.btnCriar_Click);
             // 
-            // TLogin
+            // lblFechar
+            // 
+            this.lblFechar.AutoSize = true;
+            this.lblFechar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(222)))), ((int)(((byte)(209)))));
+            this.lblFechar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblFechar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblFechar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.lblFechar.Font = new System.Drawing.Font("Consolas", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblFechar.ForeColor = System.Drawing.Color.Black;
+            this.lblFechar.Location = new System.Drawing.Point(242, 0);
+            this.lblFechar.Name = "lblFechar";
+            this.lblFechar.Size = new System.Drawing.Size(15, 15);
+            this.lblFechar.TabIndex = 11;
+            this.lblFechar.Text = "X";
+            this.lblFechar.Click += new System.EventHandler(this.lblFechar_Click);
+            // 
+            // numId
+            // 
+            this.numId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(229)))), ((int)(((byte)(199)))));
+            this.numId.Font = new System.Drawing.Font("Consolas", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.numId.Location = new System.Drawing.Point(122, 93);
+            this.numId.Name = "numId";
+            this.numId.Size = new System.Drawing.Size(95, 23);
+            this.numId.TabIndex = 1;
+            this.numId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // LLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(194)))), ((int)(((byte)(174)))));
             this.ClientSize = new System.Drawing.Size(256, 233);
+            this.Controls.Add(this.numId);
+            this.Controls.Add(this.lblFechar);
             this.Controls.Add(this.btnCriar);
             this.Controls.Add(this.btnEntrar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtSenha);
-            this.Controls.Add(this.txtId);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "TLogin";
+            this.Name = "LLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numId)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,12 +207,13 @@ namespace FinControle.Login {
         #endregion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnEntrar;
         private System.Windows.Forms.Button btnCriar;
+        private System.Windows.Forms.Label lblFechar;
+        private System.Windows.Forms.NumericUpDown numId;
     }
 }

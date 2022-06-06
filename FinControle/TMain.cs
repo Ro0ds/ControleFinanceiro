@@ -4,7 +4,6 @@ using System.Data;
 using FinControle.Login;
 using System.Windows.Forms;
 using System.Drawing;
-using System.IO;
 
 namespace FinControle {
     public partial class TMain : Form {
