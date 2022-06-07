@@ -1,6 +1,6 @@
 ﻿
 namespace FinControle {
-    partial class TMain {
+    partial class TelaInicial {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -29,8 +29,11 @@ namespace FinControle {
             this.TemporizadorPrincipal = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.lblStatusBanco = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.lblHorario = new System.Windows.Forms.Label();
+            this.lblLetreiro = new System.Windows.Forms.Label();
+            this.painel = new System.Windows.Forms.Panel();
+            this.lblUsuarioConectado = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,16 +78,6 @@ namespace FinControle {
             this.lblStatusBanco.TabIndex = 3;
             this.lblStatusBanco.Text = "Desconectado";
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(140, 346);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(104, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "desconecta banco";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // lblHorario
             // 
             this.lblHorario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -98,18 +91,68 @@ namespace FinControle {
             this.lblHorario.Text = "dd:MM:yyyy - HH:mm:ss";
             this.lblHorario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // TMain
+            // lblLetreiro
+            // 
+            this.lblLetreiro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(66)))), ((int)(((byte)(89)))));
+            this.lblLetreiro.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblLetreiro.Font = new System.Drawing.Font("Consolas", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.lblLetreiro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(194)))), ((int)(((byte)(174)))));
+            this.lblLetreiro.Location = new System.Drawing.Point(0, 0);
+            this.lblLetreiro.Name = "lblLetreiro";
+            this.lblLetreiro.Size = new System.Drawing.Size(858, 43);
+            this.lblLetreiro.TabIndex = 11;
+            this.lblLetreiro.Text = "LOGIN";
+            this.lblLetreiro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // painel
+            // 
+            this.painel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.painel.Location = new System.Drawing.Point(0, 43);
+            this.painel.Name = "painel";
+            this.painel.Size = new System.Drawing.Size(858, 486);
+            this.painel.TabIndex = 12;
+            // 
+            // lblUsuarioConectado
+            // 
+            this.lblUsuarioConectado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblUsuarioConectado.AutoSize = true;
+            this.lblUsuarioConectado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(66)))), ((int)(((byte)(89)))));
+            this.lblUsuarioConectado.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold);
+            this.lblUsuarioConectado.ForeColor = System.Drawing.Color.White;
+            this.lblUsuarioConectado.Location = new System.Drawing.Point(409, 535);
+            this.lblUsuarioConectado.Name = "lblUsuarioConectado";
+            this.lblUsuarioConectado.Size = new System.Drawing.Size(0, 14);
+            this.lblUsuarioConectado.TabIndex = 14;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(66)))), ((int)(((byte)(89)))));
+            this.label3.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(342, 535);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 14);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "Usuário:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // FMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(194)))), ((int)(((byte)(174)))));
             this.ClientSize = new System.Drawing.Size(858, 555);
+            this.Controls.Add(this.lblUsuarioConectado);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.painel);
+            this.Controls.Add(this.lblLetreiro);
             this.Controls.Add(this.lblHorario);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.lblStatusBanco);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "TMain";
+            this.Name = "FMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Controle Financeiro";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -123,8 +166,11 @@ namespace FinControle {
         private System.Windows.Forms.Timer TemporizadorPrincipal;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblStatusBanco;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label lblHorario;
+        private System.Windows.Forms.Label lblLetreiro;
+        private System.Windows.Forms.Panel painel;
+        private System.Windows.Forms.Label lblUsuarioConectado;
+        private System.Windows.Forms.Label label3;
     }
 }
 

@@ -5,7 +5,7 @@ using FirebirdSql.Data.FirebirdClient;
 using System.Data;
 
 namespace FinControle.Login {
-    public partial class LCriar : Form {
+    public partial class CriarConta : Form {
         ConectaBanco conectaBanco;
         DBClassePrincipal dBClasse;
         public string Nome { get; private set; }
@@ -13,7 +13,7 @@ namespace FinControle.Login {
         public string DicaSenha { get; private set; }
         public int Idade { get; private set; }
 
-        public LCriar() {
+        public CriarConta() {
             InitializeComponent();
             conectaBanco = new ConectaBanco();
             dBClasse = new DBClassePrincipal();
@@ -43,7 +43,7 @@ namespace FinControle.Login {
                 conectaBanco.QuerySQL = new FbCommand($"INSERT INTO Usuarios (Nome, Idade, Senha, DICA_SENHA) VALUES ('{Nome}', {Idade}, '{Senha}', '{DicaSenha}');", conectaBanco.connection);
                 conectaBanco.QuerySQL.CommandType = CommandType.Text;
                 conectaBanco.QuerySQL.ExecuteNonQuery();
-                MessageBox.Show("Usuário criado com sucesso!");
+                MessageBox.Show("Usuário criado com sucesso!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception a) {
                 MessageBox.Show($"Erro: {a.Message}", "Erro", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);

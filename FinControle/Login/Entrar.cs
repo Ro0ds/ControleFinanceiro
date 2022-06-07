@@ -1,16 +1,17 @@
 ﻿using System;
 using FinControle.DB;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace FinControle.Login {
-    public partial class LLogin : Form {
+    public partial class Entrar : Form {
         ConectaBanco conectaBanco;
         DBClassePrincipal dBClasse;
         Logar logar;
         public int id { get; set; } = 0;
         public string senha { get; set; } = string.Empty;
 
-        public LLogin() {
+        public Entrar() {
             InitializeComponent();
             logar = new Logar();
             conectaBanco = new ConectaBanco();
@@ -25,6 +26,7 @@ namespace FinControle.Login {
             finally {
                 conectaBanco.AbreConexaoBanco();
             }
+            
         }
 
         private void btnEntrar_Click(object sender, EventArgs e) {
@@ -50,9 +52,8 @@ namespace FinControle.Login {
             }
 
             switch (logar.UsuarioEncontrado) {
-                case true:
-                    TMain main = new TMain();
-                    main.Show();
+                case true:                  
+                    Thread.Sleep(1000);
                     break;
                 case false:
                     break;
@@ -60,13 +61,9 @@ namespace FinControle.Login {
         }
 
         private void btnCriar_Click(object sender, EventArgs e) {
-            LCriar criar = new LCriar();
+            CriarConta criar = new CriarConta();
             criar.Senha = txtSenha.Text;
             criar.Show();
-        }
-
-        private void lblFechar_Click(object sender, EventArgs e) {
-            this.Close();
         }
     }
 }

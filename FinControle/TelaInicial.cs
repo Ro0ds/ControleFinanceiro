@@ -6,11 +6,21 @@ using System.Windows.Forms;
 using System.Drawing;
 
 namespace FinControle {
-    public partial class TMain : Form {
+    public partial class TelaInicial : Form {
         ConectaBanco conectaBanco = new ConectaBanco();
         DBClassePrincipal dBClasse = new DBClassePrincipal();
-        public TMain() {
+        Entrar login;
+        CriarConta conta = new CriarConta();
+
+        public TelaInicial() {
             InitializeComponent();
+            login = new Entrar();
+
+            login.TopLevel = false;
+            login.AutoScroll = false;
+            painel.Controls.Add(login);
+            login.Show();
+
             try {
                 dBClasse.VerificaBanco();
             }
@@ -21,10 +31,6 @@ namespace FinControle {
                 conectaBanco.AbreConexaoBanco();
                 Timer();
             }
-        }
-
-        private void button2_Click(object sender, EventArgs e) {
-            conectaBanco.connection.Close();
         }
 
         private void TemporizadorPrincipal_Tick(object sender, EventArgs e) {

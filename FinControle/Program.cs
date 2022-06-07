@@ -14,7 +14,7 @@ namespace FinControle {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LLogin());
+            Application.Run(new TelaInicial());
         }
     }
 }

@@ -14,6 +14,7 @@ namespace FinControle.Login {
         public bool UsuarioEncontrado { get; set; } = false;
         public ConectaBanco conectaBanco { get; private set; } = new ConectaBanco();
         public DBClassePrincipal classePrincipal { get; set; } = new DBClassePrincipal();
+        public TelaInicial main { get; set; } = new TelaInicial();
         public Logar() { }
 
         public Logar(string nome, string senha, string dicaSenha, int idade) {
@@ -24,7 +25,6 @@ namespace FinControle.Login {
         }
 
         public void ExisteConta(int id, string senha) {
-            string nome = string.Empty;
             try {
                 classePrincipal.VerificaBanco();
                 conectaBanco.AbreConexaoBanco();
@@ -38,23 +38,23 @@ namespace FinControle.Login {
                 switch (dataReader.Read()) {
                     case true:
                         UsuarioEncontrado = true;
-                        conectaBanco.QuerySQL = new FbCommand($"SELECT Nome from Usuarios where id_usuario = {id} and senha = '{senha}'", conectaBanco.connection);
+                        conectaBanco.QuerySQL = new FbCommand($"SELECT Nome FROM Usuarios WHERE id_usuario = {id} AND senha = '{senha}'", conectaBanco.connection);
 
                         conectaBanco.QuerySQL.CommandType = CommandType.Text;
 
                         FbDataReader reader = conectaBanco.QuerySQL.ExecuteReader();
                         while (reader.Read()) {
-                            nome = reader.GetString(0);
+                            Nome = reader.GetString(0);
                         }
 
                         if (int.Parse(DateTime.Now.ToString("HH")) >= 5 && int.Parse(DateTime.Now.ToString("HH")) < 12) {
-                            MessageBox.Show($"Bom dia, {nome}!", $"Bem vindo - {DateTime.Now.ToString("HH:mm")}", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            MessageBox.Show($"Bom dia, {Nome}!", $"Bem vindo - {DateTime.Now.ToString("HH:mm")}", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         }
                         else if (int.Parse(DateTime.Now.ToString("HH")) >= 12 && int.Parse(DateTime.Now.ToString("HH")) < 18) {
-                            MessageBox.Show($"Boa tarde, {nome}!", $"Bem vindo - {DateTime.Now.ToString("HH:mm")}", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            MessageBox.Show($"Boa tarde, {Nome}!", $"Bem vindo - {DateTime.Now.ToString("HH:mm")}", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         }
                         else if (int.Parse(DateTime.Now.ToString("HH")) >= 18 && double.Parse(DateTime.Now.ToString("HH:mm")) < 23.59 || int.Parse(DateTime.Now.ToString("HH")) < 5) {
-                            MessageBox.Show($"Boa noite, {nome}!", $"Bem vindo - {DateTime.Now.ToString("HH:mm")}", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            MessageBox.Show($"Boa noite, {Nome}!", $"Bem vindo - {DateTime.Now.ToString("HH:mm")}", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         }
                         break;
                     case false:

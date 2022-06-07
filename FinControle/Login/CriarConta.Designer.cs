@@ -1,6 +1,6 @@
 ﻿
 namespace FinControle.Login {
-    partial class LCriar {
+    partial class CriarConta {
         /// <summary>
         /// Required designer variable.
         /// </summary>
