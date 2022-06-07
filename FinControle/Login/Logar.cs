@@ -11,6 +11,7 @@ namespace FinControle.Login {
         public string Senha { get; set; }
         public string DicaSenha { get; set; }
         public int Idade { get; set; }
+        public bool UsuarioEncontrado { get; set; } = false;
         public ConectaBanco conectaBanco { get; private set; } = new ConectaBanco();
         public DBClassePrincipal classePrincipal { get; set; } = new DBClassePrincipal();
         public Logar() { }
@@ -28,14 +29,15 @@ namespace FinControle.Login {
                 classePrincipal.VerificaBanco();
                 conectaBanco.AbreConexaoBanco();
 
-                conectaBanco.QuerySQL = new FbCommand($"SELECT id_usuario, senha from Usuarios where id_usuario = {id} and senha = '{senha}';", conectaBanco.connection);
+                conectaBanco.QuerySQL = new FbCommand($"SELECT * FROM Usuarios WHERE id_usuario = {id} AND senha = '{senha}';", conectaBanco.connection);
 
                 conectaBanco.QuerySQL.CommandType = CommandType.Text;
 
                 FbDataReader dataReader = conectaBanco.QuerySQL.ExecuteReader();
 
-                switch (dataReader.HasRows) {
+                switch (dataReader.Read()) {
                     case true:
+                        UsuarioEncontrado = true;
                         conectaBanco.QuerySQL = new FbCommand($"SELECT Nome from Usuarios where id_usuario = {id} and senha = '{senha}'", conectaBanco.connection);
 
                         conectaBanco.QuerySQL.CommandType = CommandType.Text;
@@ -56,6 +58,7 @@ namespace FinControle.Login {
                         }
                         break;
                     case false:
+                        UsuarioEncontrado = false;
                         MessageBox.Show($"Usuário não encontrado na base de dados, crie um registro novo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         break;
                 }

@@ -1,17 +1,18 @@
 ﻿using System;
 using FinControle.DB;
 using System.Windows.Forms;
-using System.Threading;
 
 namespace FinControle.Login {
     public partial class LLogin : Form {
         ConectaBanco conectaBanco;
         DBClassePrincipal dBClasse;
+        Logar logar;
         public int id { get; set; } = 0;
         public string senha { get; set; } = string.Empty;
 
         public LLogin() {
             InitializeComponent();
+            logar = new Logar();
             conectaBanco = new ConectaBanco();
             dBClasse = new DBClassePrincipal();
 
@@ -36,14 +37,26 @@ namespace FinControle.Login {
             id = Convert.ToInt32(numId.Value);
             senha = txtSenha.Text;
 
-            Logar logar = new Logar();
-            logar.ExisteConta(id, senha);
-            txtSenha.Text = string.Empty;
+            try {
+                logar.ExisteConta(id, senha);
+                txtSenha.Text = string.Empty;
+            }
+            catch (Exception a) {
+                MessageBox.Show($"Erro: {a.Message}", "Erro", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                return;
+            }
+            finally {
+                conectaBanco.connection.Close();
+            }
 
-            TMain main = new TMain();
-            main.Show();
-
-            Thread.Sleep(1000);
+            switch (logar.UsuarioEncontrado) {
+                case true:
+                    TMain main = new TMain();
+                    main.Show();
+                    break;
+                case false:
+                    break;
+            }
         }
 
         private void btnCriar_Click(object sender, EventArgs e) {
