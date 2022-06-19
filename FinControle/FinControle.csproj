@@ -91,41 +91,36 @@
   <ItemGroup>
     <Compile Include="DB\DBClassePrincipal.cs" />
     <Compile Include="DB\ConectaBanco.cs" />
+    <Compile Include="Login\Cadastrar.cs" />
     <Compile Include="Login\Logar.cs" />
-    <Compile Include="Login\CriarConta.cs">
+    <Compile Include="Login\LCriar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login\CriarConta.Designer.cs">
-      <DependentUpon>CriarConta.cs</DependentUpon>
+    <Compile Include="Login\LCriar.Designer.cs">
+      <DependentUpon>LCriar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login\Entrar.cs">
+    <Compile Include="Login\LLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login\Entrar.Designer.cs">
-      <DependentUpon>Entrar.cs</DependentUpon>
+    <Compile Include="Login\LLogin.Designer.cs">
+      <DependentUpon>LLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="TelaInicial.cs">
+    <Compile Include="TMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TelaInicial.Designer.cs">
-      <DependentUpon>TelaInicial.cs</DependentUpon>
+    <Compile Include="TMain.Designer.cs">
+      <DependentUpon>TMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Telas\Home.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Telas\Home.Designer.cs">
-      <DependentUpon>Home.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Login\CriarConta.resx">
-      <DependentUpon>CriarConta.cs</DependentUpon>
+    <EmbeddedResource Include="Login\LCriar.resx">
+      <DependentUpon>LCriar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login\Entrar.resx">
-      <DependentUpon>Entrar.cs</DependentUpon>
+    <EmbeddedResource Include="Login\LLogin.resx">
+      <DependentUpon>LLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TelaInicial.resx">
-      <DependentUpon>TelaInicial.cs</DependentUpon>
+    <EmbeddedResource Include="TMain.resx">
+      <DependentUpon>TMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -136,9 +131,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Telas\Home.resx">
-      <DependentUpon>Home.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -153,7 +145,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Entities\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets" Condition="Exists('..\packages\System.Text.Json.6.0.0\build\System.Text.Json.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
