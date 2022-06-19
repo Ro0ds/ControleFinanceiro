@@ -75,7 +75,6 @@ namespace FinControle.Login {
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(95, 23);
             this.txtSenha.TabIndex = 2;
-            this.txtSenha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtSenha.UseSystemPasswordChar = true;
             // 
             // pictureBox1
@@ -174,7 +173,6 @@ namespace FinControle.Login {
             this.numId.Name = "numId";
             this.numId.Size = new System.Drawing.Size(95, 23);
             this.numId.TabIndex = 1;
-            this.numId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // LLogin
             // 

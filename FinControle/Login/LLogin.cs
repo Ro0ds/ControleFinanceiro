@@ -51,8 +51,10 @@ namespace FinControle.Login {
 
             switch (logar.UsuarioEncontrado) {
                 case true:
-                    TMain main = new TMain();
-                    main.Show();
+
+                    Application.Run(new TMain());
+                    this.Close();
+
                     break;
                 case false:
                     break;
