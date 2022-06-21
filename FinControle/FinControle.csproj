@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="DB\DBClassePrincipal.cs" />
     <Compile Include="DB\ConectaBanco.cs" />
+    <Compile Include="DB\UsuarioConectado.cs" />
     <Compile Include="Login\Cadastrar.cs" />
     <Compile Include="Login\Logar.cs" />
     <Compile Include="Login\LCriar.cs">

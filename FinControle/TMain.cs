@@ -1,8 +1,6 @@
 ﻿using System;
 using FinControle.DB;
 using System.Data;
-using FirebirdSql.Data.FirebirdClient;
-using FinControle.Login;
 using System.Windows.Forms;
 using System.Drawing;
 
@@ -10,7 +8,7 @@ namespace FinControle {
     public partial class TMain : Form {
         ConectaBanco conectaBanco = new ConectaBanco();
         DBClassePrincipal dBClasse = new DBClassePrincipal();
-        Logar logar = new Logar();
+
         public string comando { get; set; }
         public TMain() {
             InitializeComponent();
@@ -22,12 +20,9 @@ namespace FinControle {
             }
             finally {
                 conectaBanco.AbreConexaoBanco();
+                lblUsuario.Text = UsuarioConectado.Nome;
                 Timer();
             }
-        }
-
-        private void TMain_Load(object sender, EventArgs e) {
-            lblUsuario.Text = logar.Nome;
         }
 
         private void TemporizadorPrincipal_Tick(object sender, EventArgs e) {

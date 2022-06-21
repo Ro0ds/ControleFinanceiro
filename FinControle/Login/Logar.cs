@@ -6,22 +6,10 @@ using System.Windows.Forms;
 
 namespace FinControle.Login {
     class Logar {
-        public int IdUsuario { get; private set; }
-        public string Nome { get; set; }
-        public string Senha { get; set; }
-        public string DicaSenha { get; set; }
-        public int Idade { get; set; }
         public bool UsuarioEncontrado { get; set; } = false;
         public ConectaBanco conectaBanco { get; private set; } = new ConectaBanco();
         public DBClassePrincipal classePrincipal { get; set; } = new DBClassePrincipal();
         public Logar() { }
-
-        public Logar(string nome, string senha, string dicaSenha, int idade) {
-            Nome = nome;
-            Senha = senha;
-            DicaSenha = dicaSenha;
-            Idade = idade;
-        }
 
         public void ExisteConta(int id, string senha) {
             string nome = string.Empty;
@@ -47,6 +35,8 @@ namespace FinControle.Login {
                             nome = reader.GetString(0);
                         }
 
+                        UsuarioConectado.ResgataInfoUsuario(id, senha);
+
                         if (int.Parse(DateTime.Now.ToString("HH")) >= 5 && int.Parse(DateTime.Now.ToString("HH")) < 12) {
                             MessageBox.Show($"Bom dia, {nome}!", $"Bem vindo - {DateTime.Now.ToString("HH:mm")}", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         }
@@ -70,5 +60,6 @@ namespace FinControle.Login {
                 conectaBanco.connection.Close();
             }
         }
+        
     }
 }

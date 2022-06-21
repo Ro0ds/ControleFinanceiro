@@ -8,7 +8,6 @@ namespace FinControle.Login {
     public partial class LCriar : Form {
         ConectaBanco conectaBanco;
         DBClassePrincipal dBClasse;
-        Logar logar;
         public string Nome { get; private set; }
         public string Senha { get; set; }
         public string DicaSenha { get; private set; }
@@ -39,8 +38,6 @@ namespace FinControle.Login {
             Senha = txtSenhaCriar.Text;
             DicaSenha = txtDicaSenhaCriar.Text;
             Idade = Convert.ToInt32(numIdadeCriar.Value);
-
-            logar = new Logar(Nome, Senha, DicaSenha, Idade);
 
             try {
                 conectaBanco.QuerySQL = new FbCommand($"INSERT INTO Usuarios (Nome, Idade, Senha, DICA_SENHA) VALUES ('{Nome}', {Idade}, '{Senha}', '{DicaSenha}');", conectaBanco.connection);

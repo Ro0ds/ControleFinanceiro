@@ -51,9 +51,9 @@ namespace FinControle.Login {
 
             switch (logar.UsuarioEncontrado) {
                 case true:
-
-                    Application.Run(new TMain());
-                    this.Close();
+                    Hide();
+                    TMain main = new TMain();
+                    main.ShowDialog();
 
                     break;
                 case false:
@@ -68,7 +68,7 @@ namespace FinControle.Login {
         }
 
         private void lblFechar_Click(object sender, EventArgs e) {
-            this.Close();
+            Close();
         }
     }
 }
