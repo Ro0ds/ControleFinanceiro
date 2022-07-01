@@ -9,9 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FinControle.Telas {
-    public partial class Home : Form {
-        public string Nome { get; set; }
-        public Home() {
+    public partial class Ganhos : Form {
+        public Ganhos() {
             InitializeComponent();
         }
     }

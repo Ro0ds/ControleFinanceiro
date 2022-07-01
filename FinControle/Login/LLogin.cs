@@ -52,9 +52,8 @@ namespace FinControle.Login {
             switch (logar.UsuarioEncontrado) {
                 case true:
                     Hide();
-                    TMain main = new TMain();
+                    Principal main = new Principal();
                     main.ShowDialog();
-
                     break;
                 case false:
                     break;

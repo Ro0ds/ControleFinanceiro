@@ -1,6 +1,6 @@
 ﻿
 namespace FinControle.Telas {
-    partial class Home {
+    partial class Ganhos {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -26,14 +26,16 @@ namespace FinControle.Telas {
         private void InitializeComponent() {
             this.SuspendLayout();
             // 
-            // Home
+            // Ganhos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(194)))), ((int)(((byte)(174)))));
-            this.ClientSize = new System.Drawing.Size(842, 447);
-            this.Name = "Home";
-            this.Text = "Home";
+            this.ClientSize = new System.Drawing.Size(1004, 699);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "Ganhos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Ganhos";
             this.ResumeLayout(false);
 
         }

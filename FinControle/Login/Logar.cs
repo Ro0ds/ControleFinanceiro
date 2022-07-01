@@ -49,7 +49,7 @@ namespace FinControle.Login {
                         break;
                     case false:
                         UsuarioEncontrado = false;
-                        MessageBox.Show($"Usuário não encontrado na base de dados, crie um registro novo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        MessageBox.Show($"Usuário não encontrado ou senha errada, verifique as informações ou crie um usuário novo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         break;
                 }
             }
