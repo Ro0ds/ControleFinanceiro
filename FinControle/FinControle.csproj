@@ -123,6 +123,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Salario\INSS.cs" />
+    <Compile Include="Salario\Liquido.cs" />
     <Compile Include="Telas\Principal.cs">
       <SubType>Form</SubType>
     </Compile>

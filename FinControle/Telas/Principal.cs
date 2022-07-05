@@ -6,10 +6,11 @@ using System.Windows.Forms;
 using System.Drawing;
 using CefSharp;
 using FinControle.Telas;
-using FinControle.Login;
+using FinControle.Salario;
 
 namespace FinControle {
     public partial class Principal : Form {
+        public static double Saldo { get; set; } = 0.00f;
         ConectaBanco conectaBanco = new ConectaBanco();
         DBClassePrincipal dBClasse = new DBClassePrincipal();
         private Form activeForm = null;
@@ -102,7 +103,7 @@ namespace FinControle {
             }
             else if (lblSaldo.Text.Contains("-")) {
                 imgMudarVisibilidade.Image = Resources.notvisible;
-                lblSaldo.Text = "R$1.500.000,00";
+                lblSaldo.Text = $"R${Saldo:F2}";
             }
         }
 

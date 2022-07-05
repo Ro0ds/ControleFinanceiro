@@ -35,8 +35,6 @@ namespace FinControle {
             this.label3 = new System.Windows.Forms.Label();
             this.painelPrincipal = new System.Windows.Forms.Panel();
             this.navegador = new CefSharp.WinForms.ChromiumWebBrowser();
-            this.imgMudarVisibilidade = new System.Windows.Forms.PictureBox();
-            this.lblSaldo = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSair = new System.Windows.Forms.Button();
             this.painelMetaSubMenu = new System.Windows.Forms.Panel();
@@ -51,12 +49,14 @@ namespace FinControle {
             this.btnRegistro = new System.Windows.Forms.Button();
             this.btnPrincipal = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.imgMudarVisibilidade = new System.Windows.Forms.PictureBox();
+            this.lblSaldo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.painelPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgMudarVisibilidade)).BeginInit();
             this.panel1.SuspendLayout();
             this.painelRegistroSubMenu.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgMudarVisibilidade)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -156,34 +156,10 @@ namespace FinControle {
             this.navegador.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.navegador.Location = new System.Drawing.Point(208, 12);
+            this.navegador.Location = new System.Drawing.Point(208, 142);
             this.navegador.Name = "navegador";
-            this.navegador.Size = new System.Drawing.Size(784, 666);
+            this.navegador.Size = new System.Drawing.Size(784, 536);
             this.navegador.TabIndex = 4;
-            // 
-            // imgMudarVisibilidade
-            // 
-            this.imgMudarVisibilidade.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.imgMudarVisibilidade.Image = ((System.Drawing.Image)(resources.GetObject("imgMudarVisibilidade.Image")));
-            this.imgMudarVisibilidade.Location = new System.Drawing.Point(3, 25);
-            this.imgMudarVisibilidade.Name = "imgMudarVisibilidade";
-            this.imgMudarVisibilidade.Size = new System.Drawing.Size(30, 30);
-            this.imgMudarVisibilidade.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imgMudarVisibilidade.TabIndex = 3;
-            this.imgMudarVisibilidade.TabStop = false;
-            this.imgMudarVisibilidade.Click += new System.EventHandler(this.imgMudarVisibilidade_Click);
-            // 
-            // lblSaldo
-            // 
-            this.lblSaldo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblSaldo.AutoSize = true;
-            this.lblSaldo.Font = new System.Drawing.Font("Consolas", 14F, System.Drawing.FontStyle.Bold);
-            this.lblSaldo.ForeColor = System.Drawing.Color.Black;
-            this.lblSaldo.Location = new System.Drawing.Point(36, 29);
-            this.lblSaldo.Name = "lblSaldo";
-            this.lblSaldo.Size = new System.Drawing.Size(20, 22);
-            this.lblSaldo.TabIndex = 2;
-            this.lblSaldo.Text = "-";
             // 
             // panel1
             // 
@@ -389,6 +365,30 @@ namespace FinControle {
             this.panel2.Size = new System.Drawing.Size(189, 82);
             this.panel2.TabIndex = 0;
             // 
+            // imgMudarVisibilidade
+            // 
+            this.imgMudarVisibilidade.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.imgMudarVisibilidade.Image = ((System.Drawing.Image)(resources.GetObject("imgMudarVisibilidade.Image")));
+            this.imgMudarVisibilidade.Location = new System.Drawing.Point(3, 25);
+            this.imgMudarVisibilidade.Name = "imgMudarVisibilidade";
+            this.imgMudarVisibilidade.Size = new System.Drawing.Size(30, 30);
+            this.imgMudarVisibilidade.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgMudarVisibilidade.TabIndex = 3;
+            this.imgMudarVisibilidade.TabStop = false;
+            this.imgMudarVisibilidade.Click += new System.EventHandler(this.imgMudarVisibilidade_Click);
+            // 
+            // lblSaldo
+            // 
+            this.lblSaldo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSaldo.AutoSize = true;
+            this.lblSaldo.Font = new System.Drawing.Font("Consolas", 14F, System.Drawing.FontStyle.Bold);
+            this.lblSaldo.ForeColor = System.Drawing.Color.Black;
+            this.lblSaldo.Location = new System.Drawing.Point(36, 29);
+            this.lblSaldo.Name = "lblSaldo";
+            this.lblSaldo.Size = new System.Drawing.Size(20, 22);
+            this.lblSaldo.TabIndex = 2;
+            this.lblSaldo.Text = "-";
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -406,14 +406,13 @@ namespace FinControle {
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Controle Financeiro";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.painelPrincipal.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.imgMudarVisibilidade)).EndInit();
             this.panel1.ResumeLayout(false);
             this.painelRegistroSubMenu.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgMudarVisibilidade)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
